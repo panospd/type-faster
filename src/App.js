@@ -7,10 +7,7 @@ function App() {
   const [text, setText] = useState("");
 
   const getText = () => {
-    const randomText = textGenerator.generate();
-
-    console.log(randomText);
-    setText(randomText);
+    setText(textGenerator.generate());
   };
 
   useEffect(() => {
