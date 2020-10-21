@@ -1,5 +1,4 @@
 import React from "react";
-import highlights from "../styles/highlights";
 import Word from "./Word";
 
 export default function TextContainer({ text, results, top }) {

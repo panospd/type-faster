@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Input from "./components/Input";
 import Screen from "./components/Screen";
@@ -6,13 +6,9 @@ import TextContainer from "./components/TextContainer";
 import textGenerator from "./services/textGenerator";
 
 function App() {
-  const [text, setText] = useState("");
+  const [text] = useState(textGenerator.generate());
   const [results, setResults] = useState([]);
   const [offset, setOffset] = useState(0);
-
-  const getText = () => {
-    setText(textGenerator.generate());
-  };
 
   const offsetTopDiff = results => {
     if (results.length === 0) return 0;
@@ -39,10 +35,6 @@ function App() {
     const offset = offsetTopDiff(results);
     setOffset(current => current + offset);
   };
-
-  useEffect(() => {
-    getText();
-  }, []);
 
   return (
     <Screen>

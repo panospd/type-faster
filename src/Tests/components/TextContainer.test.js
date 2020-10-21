@@ -11,7 +11,7 @@ describe("TextContainer", () => {
     );
 
     const expectedHtml =
-      '<span index="0" style="background-color: lightgrey; padding: 3px 5px; display: inline-block; border-radius: 3px;">This</span><span index="1" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">is</span><span index="2" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">a</span><span index="3" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">dummy</span><span index="4" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">text</span>';
+      '<span data-testid="word" index="0" style="background-color: lightgrey; padding: 3px 5px; display: inline-block; border-radius: 3px;">This</span><span data-testid="word" index="1" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">is</span><span data-testid="word" index="2" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">a</span><span data-testid="word" index="3" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">dummy</span><span data-testid="word" index="4" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">text</span>';
 
     expect(getByTestId("textContainer").innerHTML).toBe(expectedHtml);
   });
@@ -26,7 +26,7 @@ describe("TextContainer", () => {
     );
 
     const expectedHtml =
-      '<span index="0" style="color: limegreen; padding: 3px 5px; display: inline-block; border-radius: 3px;">This</span><span index="1" style="color: limegreen; padding: 3px 5px; display: inline-block; border-radius: 3px;">is</span><span index="2" style="background-color: lightgrey; padding: 3px 5px; display: inline-block; border-radius: 3px;">a</span><span index="3" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">dummy</span><span index="4" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">text</span>';
+      '<span data-testid="word" index="0" style="color: limegreen; padding: 3px 5px; display: inline-block; border-radius: 3px;">This</span><span data-testid="word" index="1" style="color: limegreen; padding: 3px 5px; display: inline-block; border-radius: 3px;">is</span><span data-testid="word" index="2" style="background-color: lightgrey; padding: 3px 5px; display: inline-block; border-radius: 3px;">a</span><span data-testid="word" index="3" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">dummy</span><span data-testid="word" index="4" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">text</span>';
 
     expect(getByTestId("textContainer").innerHTML).toBe(expectedHtml);
   });
@@ -41,7 +41,7 @@ describe("TextContainer", () => {
     );
 
     const expectedHtml =
-      '<span index="0" style="color: red; padding: 3px 5px; display: inline-block; border-radius: 3px;">This</span><span index="1" style="color: red; padding: 3px 5px; display: inline-block; border-radius: 3px;">is</span><span index="2" style="background-color: lightgrey; padding: 3px 5px; display: inline-block; border-radius: 3px;">a</span><span index="3" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">dummy</span><span index="4" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">text</span>';
+      '<span data-testid="word" index="0" style="color: red; padding: 3px 5px; display: inline-block; border-radius: 3px;">This</span><span data-testid="word" index="1" style="color: red; padding: 3px 5px; display: inline-block; border-radius: 3px;">is</span><span data-testid="word" index="2" style="background-color: lightgrey; padding: 3px 5px; display: inline-block; border-radius: 3px;">a</span><span data-testid="word" index="3" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">dummy</span><span data-testid="word" index="4" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">text</span>';
 
     expect(getByTestId("textContainer").innerHTML).toBe(expectedHtml);
   });
@@ -56,7 +56,7 @@ describe("TextContainer", () => {
     );
 
     const expectedHtml =
-      '<span index="0" style="color: red; padding: 3px 5px; display: inline-block; border-radius: 3px;">This</span><span index="1" style="color: limegreen; padding: 3px 5px; display: inline-block; border-radius: 3px;">is</span><span index="2" style="background-color: lightgrey; padding: 3px 5px; display: inline-block; border-radius: 3px;">a</span><span index="3" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">dummy</span><span index="4" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">text</span>';
+      '<span data-testid="word" index="0" style="color: red; padding: 3px 5px; display: inline-block; border-radius: 3px;">This</span><span data-testid="word" index="1" style="color: limegreen; padding: 3px 5px; display: inline-block; border-radius: 3px;">is</span><span data-testid="word" index="2" style="background-color: lightgrey; padding: 3px 5px; display: inline-block; border-radius: 3px;">a</span><span data-testid="word" index="3" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">dummy</span><span data-testid="word" index="4" style="padding: 3px 5px; display: inline-block; border-radius: 3px;">text</span>';
 
     expect(getByTestId("textContainer").innerHTML).toBe(expectedHtml);
   });
