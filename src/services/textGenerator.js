@@ -1,7 +1,7 @@
 const txtgen = require("txtgen");
 
 const generate = () => {
-  return txtgen.paragraph();
+  return txtgen.article(10);
 };
 
 export default {

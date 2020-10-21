@@ -1,13 +1,43 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Input from "./components/Input";
+import Screen from "./components/Screen";
+import TextContainer from "./components/TextContainer";
 import textGenerator from "./services/textGenerator";
 
 function App() {
   const [text, setText] = useState("");
+  const [results, setResults] = useState([]);
+  const [offset, setOffset] = useState(0);
 
   const getText = () => {
     setText(textGenerator.generate());
+  };
+
+  const offsetTopDiff = results => {
+    if (results.length === 0) return 0;
+
+    const currentWord = document
+      .getElementById("words")
+      .querySelector(`span[index="${results.length}"]`);
+
+    const nextWord = document
+      .getElementById("words")
+      .querySelector(`span[index="${results.length + 1}"]`);
+
+    console.log(results.length, currentWord.offsetTop, nextWord.offsetTop);
+    console.log(currentWord, nextWord);
+
+    return currentWord.offsetTop - nextWord.offsetTop;
+  };
+
+  const handleSpaceBarPress = e => {
+    setResults(current => {
+      return [...current, e.target.value];
+    });
+
+    const offset = offsetTopDiff(results);
+    setOffset(current => current + offset);
   };
 
   useEffect(() => {
@@ -15,9 +45,24 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <p>{text}</p>
-    </div>
+    <Screen>
+      <div
+        style={{
+          width: "65%",
+          maxWidth: "1000px",
+          display: "flex",
+          flexDirection: "column",
+          padding: "60px",
+        }}
+      >
+        <div style={{ flexGrow: 0.05 }}>
+          <TextContainer text={text} results={results} top={offset} />
+        </div>
+        <div style={{ flexGrow: 1, textAlign: "center" }}>
+          <Input onSpaceBarPress={handleSpaceBarPress} />
+        </div>
+      </div>
+    </Screen>
   );
 }
 
