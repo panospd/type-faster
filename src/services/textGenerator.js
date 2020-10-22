@@ -1,7 +1,7 @@
 const txtgen = require("txtgen");
 
-const generate = (numberOfParagraphs = 10) => {
-  return txtgen.article(numberOfParagraphs);
+const generate = () => {
+  return txtgen.sentence();
 };
 
 export default {

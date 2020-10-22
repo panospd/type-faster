@@ -6,7 +6,7 @@ import ColumnSection from "./ColumnSection";
 import FlexItem from "./FlexItem";
 
 export default function Typer() {
-  const [text] = useState(textGenerator.generate());
+  const [text, setText] = useState(textGenerator.generate());
   const [results, setResults] = useState([]);
   const [offset, setOffset] = useState(0);
 
@@ -14,6 +14,13 @@ export default function Typer() {
     return document
       .getElementById("words")
       .querySelector(`span[index="${index}"]`);
+  };
+
+  const enrichText = results => {
+    const checkWord = getWordDomElementByIndex(results.length + 10);
+
+    if (!checkWord)
+      setText(current => current + " " + textGenerator.generate());
   };
 
   const offsetTopDiff = results => {
@@ -32,6 +39,7 @@ export default function Typer() {
 
     const offset = offsetTopDiff(results);
     setOffset(current => current + offset);
+    enrichText(results);
   };
 
   return (
