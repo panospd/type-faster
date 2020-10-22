@@ -9,6 +9,8 @@ export default function Screen(props) {
         width: "100%",
         height: "100vh",
         maxHeight: "100vh",
+        paddingTop: "60px",
+        boxSizing: "border-box",
         backgroundColor: "purple",
       }}
     >

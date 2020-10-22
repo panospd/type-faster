@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../components/Input";
 import TextContainer from "../components/TextContainer";
 import textGenerator from "../services/textGenerator";
+import ColumnSection from "./ColumnSection";
 
 export default function Typer() {
   const [text] = useState(textGenerator.generate());
@@ -19,9 +20,6 @@ export default function Typer() {
       .getElementById("words")
       .querySelector(`span[index="${results.length + 1}"]`);
 
-    console.log(results.length, currentWord.offsetTop, nextWord.offsetTop);
-    console.log(currentWord, nextWord);
-
     return currentWord.offsetTop - nextWord.offsetTop;
   };
 
@@ -35,21 +33,13 @@ export default function Typer() {
   };
 
   return (
-    <div
-      style={{
-        width: "65%",
-        maxWidth: "1000px",
-        display: "flex",
-        flexDirection: "column",
-        padding: "60px",
-      }}
-    >
+    <ColumnSection data-testid="typer" width="65%">
       <div style={{ flexGrow: 0.05 }}>
         <TextContainer text={text} results={results} top={offset} />
       </div>
       <div style={{ flexGrow: 1, textAlign: "center" }}>
         <Input onSpaceBarPress={handleSpaceBarPress} />
       </div>
-    </div>
+    </ColumnSection>
   );
 }
