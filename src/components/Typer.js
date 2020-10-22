@@ -3,22 +3,24 @@ import Input from "../components/Input";
 import TextContainer from "../components/TextContainer";
 import textGenerator from "../services/textGenerator";
 import ColumnSection from "./ColumnSection";
+import FlexItem from "./FlexItem";
 
 export default function Typer() {
   const [text] = useState(textGenerator.generate());
   const [results, setResults] = useState([]);
   const [offset, setOffset] = useState(0);
 
+  const getWordDomElementByIndex = index => {
+    return document
+      .getElementById("words")
+      .querySelector(`span[index="${index}"]`);
+  };
+
   const offsetTopDiff = results => {
     if (results.length === 0) return 0;
 
-    const currentWord = document
-      .getElementById("words")
-      .querySelector(`span[index="${results.length}"]`);
-
-    const nextWord = document
-      .getElementById("words")
-      .querySelector(`span[index="${results.length + 1}"]`);
+    const currentWord = getWordDomElementByIndex(results.length);
+    const nextWord = getWordDomElementByIndex(results.length + 1);
 
     return currentWord.offsetTop - nextWord.offsetTop;
   };
@@ -34,12 +36,12 @@ export default function Typer() {
 
   return (
     <ColumnSection data-testid="typer" width="65%">
-      <div style={{ flexGrow: 0.05 }}>
+      <FlexItem grow={0.05}>
         <TextContainer text={text} results={results} top={offset} />
-      </div>
-      <div style={{ flexGrow: 1, textAlign: "center" }}>
+      </FlexItem>
+      <FlexItem style={{ textAlign: "center" }}>
         <Input onSpaceBarPress={handleSpaceBarPress} />
-      </div>
+      </FlexItem>
     </ColumnSection>
   );
 }
