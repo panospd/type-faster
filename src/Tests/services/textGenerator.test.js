@@ -1,4 +1,4 @@
-const { default: textGenerator } = require("../services/textGenerator");
+const { default: textGenerator } = require("../../services/textGenerator");
 
 const sut = textGenerator;
 

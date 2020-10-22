@@ -5,6 +5,7 @@ export default function Input({ onSpaceBarPress }) {
 
   return (
     <input
+      data-testid="input"
       autoFocus
       value={input}
       onChange={e => {
