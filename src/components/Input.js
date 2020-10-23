@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
-export default function Input({ onSpaceBarPress }) {
+export default function Input({ onSpaceBarPress, onInputChange }) {
   const [input, setInput] = useState("");
+
+  const emitChange = value => onInputChange && onInputChange(value);
 
   return (
     <input
@@ -9,13 +11,19 @@ export default function Input({ onSpaceBarPress }) {
       autoFocus
       value={input}
       onChange={e => {
-        if (e.target.value !== " ") setInput(e.target.value);
+        if (e.target.value === " ") return;
+
+        const val = e.target.value;
+
+        setInput(val);
+        emitChange(val);
       }}
       onKeyPress={e => {
         if (e.key !== " " || !e.target.value) return;
-        onSpaceBarPress(e);
+        onSpaceBarPress(input);
 
         setInput("");
+        emitChange("");
       }}
       style={{
         width: "60%",

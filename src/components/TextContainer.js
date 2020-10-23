@@ -1,14 +1,26 @@
 import React from "react";
 import Word from "./Word";
 
-export default function TextContainer({ text, results, top }) {
+export default function TextContainer({ text, results, top, currentInput }) {
+  const getWordPreview = word => {
+    if (!currentInput) return "focus";
+
+    if (currentInput.length > word.length) return "wrongPreview";
+
+    for (let i = 0; i < currentInput.length; i++) {
+      if (currentInput[i] !== word[i]) return "wrongPreview";
+    }
+
+    return "focus";
+  };
+
   const getWordStatus = (index, word) => {
     return results[index]
       ? results[index] === word
         ? "correct"
         : "wrong"
       : results.length === index
-      ? "focus"
+      ? getWordPreview(word)
       : "";
   };
 

@@ -6,8 +6,9 @@ import ColumnSection from "./ColumnSection";
 import FlexItem from "./FlexItem";
 
 export default function Typer() {
-  const [text, setText] = useState(textGenerator.generate());
+  const [text, setText] = useState(textGenerator.generate(3));
   const [results, setResults] = useState([]);
+  const [currentInput, setCurrentInput] = useState("");
   const [offset, setOffset] = useState(0);
 
   const getWordDomElementByIndex = index => {
@@ -17,7 +18,7 @@ export default function Typer() {
   };
 
   const enrichText = results => {
-    const checkWord = getWordDomElementByIndex(results.length + 10);
+    const checkWord = getWordDomElementByIndex(results.length + 20);
 
     if (!checkWord)
       setText(current => current + " " + textGenerator.generate());
@@ -32,9 +33,9 @@ export default function Typer() {
     return currentWord.offsetTop - nextWord.offsetTop;
   };
 
-  const handleSpaceBarPress = e => {
+  const handleSpaceBarPress = value => {
     setResults(current => {
-      return [...current, e.target.value];
+      return [...current, value];
     });
 
     const offset = offsetTopDiff(results);
@@ -45,10 +46,18 @@ export default function Typer() {
   return (
     <ColumnSection data-testid="typer" width="65%">
       <FlexItem grow={0.05}>
-        <TextContainer text={text} results={results} top={offset} />
+        <TextContainer
+          text={text}
+          results={results}
+          top={offset}
+          currentInput={currentInput}
+        />
       </FlexItem>
       <FlexItem style={{ textAlign: "center" }}>
-        <Input onSpaceBarPress={handleSpaceBarPress} />
+        <Input
+          onSpaceBarPress={handleSpaceBarPress}
+          onInputChange={value => setCurrentInput(value)}
+        />
       </FlexItem>
     </ColumnSection>
   );

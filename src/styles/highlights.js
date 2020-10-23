@@ -8,6 +8,9 @@ const highlights = {
   wrong: {
     color: "red",
   },
+  wrongPreview: {
+    backgroundColor: "red",
+  },
 };
 
 export default highlights;
