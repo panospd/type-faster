@@ -32,19 +32,24 @@ export default function Timer({ start, onGameOver, time, reset }) {
   const [intervalId, setIntervalId] = useState(null);
 
   useEffect(() => {
-    if (start)
-      startTimer(start, intervalId, timeToSet, timer, setTimer, setIntervalId);
-  }, [start, intervalId, timeToSet, timer, setIntervalId]);
+    startTimer(start, intervalId, timeToSet, timer, setTimer, setIntervalId);
+  }, [start, intervalId, timeToSet, setIntervalId]);
 
   useEffect(() => {
     if (reset) {
+      console.log("Resetting");
       setTimer(timeToSet);
       disposeInterval(intervalId, setIntervalId);
-    } else if (timer === 0) {
+    }
+  }, [reset]);
+
+  useEffect(() => {
+    if (timer === 0 && intervalId) {
+      console.log("Game over!!!");
       onGameOver();
       disposeInterval(intervalId, setIntervalId);
     }
-  }, [timer, reset, onGameOver, timeToSet, intervalId, setIntervalId]);
+  }, [timer]);
 
   return (
     <TextBox

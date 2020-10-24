@@ -3,12 +3,17 @@ import React, { useEffect, useRef, useState } from "react";
 export default function Input({
   onSpaceBarPress,
   onInputChange,
+  reset,
   disabled = false,
 }) {
   const [input, setInput] = useState("");
   const inputElement = useRef(null);
 
   const emitChange = value => onInputChange && onInputChange(value);
+
+  useEffect(() => {
+    if (reset) setInput("");
+  }, [reset]);
 
   useEffect(() => {
     if (!disabled) inputElement.current.focus();

@@ -87,6 +87,7 @@ export default function Typer() {
   const handleGameOver = () => {
     calculateResults();
     setGameOver(true);
+    setStart(false);
     setCurrentInput("");
   };
 
@@ -129,6 +130,7 @@ export default function Typer() {
                   disabled={gameOver}
                   onSpaceBarPress={handleSpaceBarPress}
                   onInputChange={handleInputChange}
+                  reset={resetTimer}
                 />
               </FlexItem>
               <FlexItem
