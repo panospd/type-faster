@@ -1,6 +1,6 @@
 import React from "react";
-import FlexItem from "./FlexItem";
-import FlexSection from "./FlexSection";
+import FlexItem from "./reusable/FlexItem";
+import FlexSection from "./reusable/FlexSection";
 import ResultItem from "./ResultItem";
 
 export default function ResultsContainer({ results }) {

@@ -1,6 +1,6 @@
 import React from "react";
-import FlexItem from "./FlexItem";
-import FlexSection from "./FlexSection";
+import FlexItem from "./reusable/FlexItem";
+import FlexSection from "./reusable/FlexSection";
 
 export default function ResultItem({ label, value, color = "black" }) {
   return (

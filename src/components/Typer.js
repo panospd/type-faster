@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-import Input from "../components/Input";
+import Input from "../components/reusable/Input";
 import TextContainer from "../components/TextContainer";
 import settings from "../config/settings";
 import textGenerator from "../services/textGenerator";
-import FlexItem from "./FlexItem";
-import FlexSection from "./FlexSection";
-import Reload from "./Reload";
+import FlexItem from "./reusable/FlexItem";
+import FlexSection from "./reusable/FlexSection";
+import Reload from "./reusable/Reload";
 import ResultsContainer from "./ResultsContainer";
-import Timer from "./Timer";
+import Timer from "./reusable/Timer";
 
 export default function Typer() {
   const [start, setStart] = useState(false);
@@ -122,7 +122,7 @@ export default function Typer() {
               currentInput={currentInput}
             />
           </FlexItem>
-          <FlexItem style={{ width: "80%", paddingTop: "5px" }}>
+          <FlexItem style={{ width: "80%", paddingTop: "10px" }}>
             <FlexSection direction="row">
               <FlexItem grow={2}>
                 <Input

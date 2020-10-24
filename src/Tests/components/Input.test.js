@@ -1,7 +1,6 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import Word from "../../components/Word";
-import Input from "../../components/Input";
+import Input from "../../components/reusable/Input";
 
 afterEach(cleanup);
 

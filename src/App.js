@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import FlexSection from "./components/FlexSection";
+import FlexSection from "./components//reusable/FlexSection";
 
 import Typer from "./components/Typer";
 
