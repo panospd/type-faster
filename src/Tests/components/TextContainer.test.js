@@ -7,7 +7,7 @@ afterEach(cleanup);
 describe("TextContainer", () => {
   it("renders TextContainer component", () => {
     const { getByTestId } = render(
-      <TextContainer text="This is a dummy text" results={[]} top={0} />
+      <TextContainer text="This is a dummy text" wordInputs={[]} top={0} />
     );
 
     const expectedHtml =
@@ -20,7 +20,7 @@ describe("TextContainer", () => {
     const { getByTestId } = render(
       <TextContainer
         text="This is a dummy text"
-        results={["This", "is"]}
+        wordInputs={["This", "is"]}
         top={0}
       />
     );
@@ -35,7 +35,7 @@ describe("TextContainer", () => {
     const { getByTestId } = render(
       <TextContainer
         text="This is a dummy text"
-        results={["Thos", "os"]}
+        wordInputs={["Thos", "os"]}
         top={0}
       />
     );
@@ -50,7 +50,7 @@ describe("TextContainer", () => {
     const { getByTestId } = render(
       <TextContainer
         text="This is a dummy text"
-        results={["this", "is"]}
+        wordInputs={["this", "is"]}
         top={0}
       />
     );

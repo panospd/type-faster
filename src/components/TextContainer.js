@@ -1,7 +1,8 @@
 import React from "react";
+import settings from "../config/settings";
 import Word from "./Word";
 
-export default function TextContainer({ text, results, top, currentInput }) {
+export default function TextContainer({ text, wordInputs, top, currentInput }) {
   const getWordPreview = word => {
     if (!currentInput) return "focus";
 
@@ -15,11 +16,11 @@ export default function TextContainer({ text, results, top, currentInput }) {
   };
 
   const getWordStatus = (index, word) => {
-    return results[index]
-      ? results[index] === word
+    return wordInputs[index]
+      ? wordInputs[index] === word
         ? "correct"
         : "wrong"
-      : results.length === index
+      : wordInputs.length === index
       ? getWordPreview(word)
       : "";
   };
@@ -39,7 +40,7 @@ export default function TextContainer({ text, results, top, currentInput }) {
         data-testid="textContainer"
         style={{ position: "relative", top: top }}
       >
-        {text.split(/\s+/).map(renderWord)}
+        {text.split(settings.word.delimiter).map(renderWord)}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ describe("Input component", () => {
     const input = getByTestId("input");
 
     const expectedHtml =
-      '<input data-testid="input" style="width: 60%; height: 60px; font-size: 25px; padding: 5px 20px; border-radius: 20px; outline: none;" value="">';
+      '<input data-testid="input" style="width: 100%; height: 60px; font-size: 25px; padding: 5px 20px; box-sizing: border-box; outline: none;" value="">';
 
     expect(input.outerHTML).toBe(expectedHtml);
     expect(input.value).toBe("");

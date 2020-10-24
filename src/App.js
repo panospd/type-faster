@@ -1,14 +1,23 @@
 import React from "react";
 import "./App.css";
+import FlexSection from "./components/FlexSection";
 
-import Screen from "./components/Screen";
 import Typer from "./components/Typer";
 
 function App() {
   return (
-    <Screen>
+    <FlexSection
+      style={{
+        justifyContent: "center",
+        width: "100%",
+        height: "100vh",
+        paddingTop: "60px",
+        boxSizing: "border-box",
+        backgroundColor: "#d88e8e",
+      }}
+    >
       <Typer />
-    </Screen>
+    </FlexSection>
   );
 }
 

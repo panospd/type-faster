@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-export default function Input({ onSpaceBarPress, onInputChange }) {
+export default function Input({
+  onSpaceBarPress,
+  onInputChange,
+  disabled = false,
+}) {
   const [input, setInput] = useState("");
+  const inputElement = useRef(null);
 
   const emitChange = value => onInputChange && onInputChange(value);
 
+  useEffect(() => {
+    if (!disabled) inputElement.current.focus();
+
+    setInput("");
+  }, [disabled]);
+
   return (
     <input
+      ref={inputElement}
+      disabled={disabled}
       data-testid="input"
       autoFocus
       value={input}
@@ -26,11 +39,11 @@ export default function Input({ onSpaceBarPress, onInputChange }) {
         emitChange("");
       }}
       style={{
-        width: "60%",
+        width: "100%",
         height: "60px",
         fontSize: "25px",
         padding: "5px 20px",
-        borderRadius: "20px",
+        boxSizing: "border-box",
         outline: "none",
       }}
     />

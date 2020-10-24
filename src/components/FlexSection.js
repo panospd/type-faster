@@ -1,13 +1,17 @@
 import React from "react";
 
-export default function ColumnSection({ width, children, ...rest }) {
+export default function FlexSection({
+  direction = "row",
+  children,
+  style,
+  ...rest
+}) {
   return (
     <div
       style={{
-        width,
-        maxWidth: "1000px",
+        ...style,
         display: "flex",
-        flexDirection: "column",
+        flexDirection: direction,
       }}
       {...rest}
     >
