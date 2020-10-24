@@ -8,6 +8,7 @@ export default function Reload({ onClick, disabled }) {
 
   return (
     <div
+      data-testid="reload"
       onClick={() => !disabled && onClick()}
       style={{ height: "100%", opacity, cursor: "pointer" }}
       onMouseOver={() => !disabled && setOpacity(0.9)}

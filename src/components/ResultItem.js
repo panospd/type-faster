@@ -4,7 +4,7 @@ import FlexSection from "./reusable/FlexSection";
 
 export default function ResultItem({ label, value, color = "black" }) {
   return (
-    <FlexSection>
+    <FlexSection data-testid="resultItem">
       <FlexItem grow={2} style={{ textAlign: "left" }}>
         <span style={{ fontSize: "3em" }}>{label}:</span>:{" "}
       </FlexItem>
