@@ -8,6 +8,7 @@ export default function FlexSection({
 }) {
   return (
     <div
+      data-testid="flexSection"
       style={{
         ...style,
         display: "flex",

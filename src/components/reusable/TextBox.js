@@ -4,13 +4,14 @@ export default function TextBox({
   bgColor,
   color,
   size,
-  txtSize,
+  txtSize = "1em",
   style,
   text,
   children,
 }) {
   return (
     <div
+      data-testid="textBox"
       style={{
         ...style,
         backgroundColor: bgColor ?? "#3c4d5c",
