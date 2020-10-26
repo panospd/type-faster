@@ -13,19 +13,29 @@ export default function ResultsContainer({ results }) {
     <div>
       <FlexSection
         direction="column"
-        style={{ width: "100%", borderSizing: "border-box" }}
+        style={{
+          width: "100%",
+          borderSizing: "border-box",
+          border: "2px solid black",
+        }}
       >
+        <FlexItem
+          style={{ marginBottom: "0px", borderBottom: "2px solid black" }}
+        >
+          <ResultItem
+            size={{ value: "3em" }}
+            value={results.correct}
+            hint="(words per minute)"
+          />
+        </FlexItem>
         <FlexItem style={{ marginBottom: "0px" }}>
           <ResultItem
-            label="Score"
+            label="Accuracy"
             value={`${roundedScore}%`}
             color={roundedScore > 90 ? "green" : "orange"}
           />
         </FlexItem>
 
-        <FlexItem style={{ marginBottom: "0px" }}>
-          <ResultItem label="Correct" value={results.correct} color="green" />
-        </FlexItem>
         <FlexItem>
           <ResultItem label="Wrong" value={results.wrong} color="red" />
         </FlexItem>
