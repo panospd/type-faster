@@ -6,11 +6,12 @@ import ResultItem from "./ResultItem";
 export default function ResultsContainer({ results }) {
   const total = results.correct + results.wrong;
 
-  const scorePercentage = (results.correct / total) * 100;
-  const roundedScore = scorePercentage.toFixed(1);
+  const roundedScore = total
+    ? ((results.correct / total) * 100).toFixed(1)
+    : "-";
 
   return (
-    <div>
+    <div data-testid="resultscontainer">
       <FlexSection
         direction="column"
         style={{
@@ -20,6 +21,7 @@ export default function ResultsContainer({ results }) {
         }}
       >
         <FlexItem
+          data-testid="resultContainerValue"
           style={{ marginBottom: "0px", borderBottom: "2px solid black" }}
         >
           <ResultItem
@@ -28,7 +30,10 @@ export default function ResultsContainer({ results }) {
             hint="(words per minute)"
           />
         </FlexItem>
-        <FlexItem style={{ marginBottom: "0px" }}>
+        <FlexItem
+          data-testid="resultContainerScore"
+          style={{ marginBottom: "0px" }}
+        >
           <ResultItem
             label="Accuracy"
             value={`${roundedScore}%`}
@@ -36,7 +41,7 @@ export default function ResultsContainer({ results }) {
           />
         </FlexItem>
 
-        <FlexItem>
+        <FlexItem data-testid="resultContainerWrong">
           <ResultItem label="Wrong" value={results.wrong} color="red" />
         </FlexItem>
         <FlexItem style={{ marginBottom: "0px" }}>

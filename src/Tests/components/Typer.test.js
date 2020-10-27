@@ -2,6 +2,7 @@ import React from "react";
 import { render, cleanup, fireEvent, act, wait } from "@testing-library/react";
 import Typer from "../../components/Typer";
 import textGenerator from "../../services/textGenerator";
+import "@testing-library/jest-dom/extend-expect";
 
 afterEach(cleanup);
 
@@ -70,7 +71,6 @@ describe("Typer component", () => {
   it("Previews wrongly typed word", () => {
     const { getByTestId } = render(<Typer />);
 
-    const typer = getByTestId("typer");
     const input = getByTestId("input");
 
     registerWord(input, "This");
@@ -116,10 +116,7 @@ describe("Typer component", () => {
 
     await wait(
       () => {
-        const expectedHtml =
-          '<input data-testid="input" style="width: 100%; height: 60px; font-size: 25px; padding: 5px 20px; box-sizing: border-box; outline: none;" value="" disabled="">';
-
-        expect(input.outerHTML).toBe(expectedHtml);
+        expect(input).toBeDisabled();
       },
       { interval: 1000 }
     );
