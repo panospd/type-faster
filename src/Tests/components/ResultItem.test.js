@@ -13,7 +13,7 @@ describe("ResultItem component", () => {
     const resultItem = getByTestId("resultItem");
 
     const expectedHtml =
-      '<div data-testid="resultItem" style="padding: 10px; background-color: white; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: left;"><span style="font-size: 1.6em;">The label:</span>: </div><div data-testid="flexItem" style="flex-grow: 1; text-align: right;"><span style="font-size: 1.6em; color: green;">5</span></div></div>';
+      '<div data-testid="resultItem" style="padding: 8px; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: left;"><span style="font-size: 1.6em;">The label:</span>: </div><div data-testid="flexItem" style="flex-grow: 1; text-align: right;"><span style="font-size: 1.6em; color: green;">5</span></div></div>';
 
     expect(resultItem.outerHTML).toBe(expectedHtml);
   });
@@ -31,7 +31,7 @@ describe("ResultItem component", () => {
     const resultItem = getByTestId("resultItem");
 
     const expectedHtml =
-      '<div data-testid="resultItem" style="padding: 10px; background-color: white; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: left;"><span style="font-size: 5px;">The label:</span>: </div><div data-testid="flexItem" style="flex-grow: 1; text-align: right;"><span style="font-size: 6px; color: green;">5</span></div></div>';
+      '<div data-testid="resultItem" style="padding: 8px; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: left;"><span style="font-size: 5px;">The label:</span>: </div><div data-testid="flexItem" style="flex-grow: 1; text-align: right;"><span style="font-size: 6px; color: green;">5</span></div></div>';
 
     expect(resultItem.outerHTML).toBe(expectedHtml);
   });
@@ -42,7 +42,7 @@ describe("ResultItem component", () => {
     const resultItem = getByTestId("resultItem");
 
     const expectedHtml =
-      '<div data-testid="resultItem" style="padding: 10px; background-color: white; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: center;"><span style="font-size: 1.6em; color: green;">5</span></div></div>';
+      '<div data-testid="resultItem" style="padding: 8px; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: center;"><span style="font-size: 1.6em; color: green;">5</span></div></div>';
 
     expect(resultItem.outerHTML).toBe(expectedHtml);
   });
@@ -61,7 +61,7 @@ describe("ResultItem component", () => {
     const resultItem = getByTestId("resultItem");
 
     const expectedHtml =
-      '<div data-testid="resultItem" style="padding: 10px; background-color: white; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: left;"><span style="font-size: 5px;">The label:</span>: </div><div data-testid="flexItem" style="flex-grow: 1; text-align: right;"><span style="font-size: 6px; color: green;">5</span><span style="font-size: 1em; display: block;">This is the hint</span></div></div>';
+      '<div data-testid="resultItem" style="padding: 8px; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: left;"><span style="font-size: 5px;">The label:</span>: </div><div data-testid="flexItem" style="flex-grow: 1; text-align: right;"><span style="font-size: 6px; color: green;">5</span><span style="font-size: 1em; display: block;">This is the hint</span></div></div>';
 
     expect(resultItem.outerHTML).toBe(expectedHtml);
   });
@@ -80,7 +80,7 @@ describe("ResultItem component", () => {
     const resultItem = getByTestId("resultItem");
 
     const expectedHtml =
-      '<div data-testid="resultItem" style="padding: 10px; background-color: white; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: left;"><span style="font-size: 5px;">The label:</span>: </div><div data-testid="flexItem" style="flex-grow: 1; text-align: right;"><span style="font-size: 6px; color: green;">5</span><span style="font-size: 11px; display: block;">This is the hint</span></div></div>';
+      '<div data-testid="resultItem" style="padding: 8px; display: flex; flex-direction: row;"><div data-testid="flexItem" style="flex-grow: 1; text-align: left;"><span style="font-size: 5px;">The label:</span>: </div><div data-testid="flexItem" style="flex-grow: 1; text-align: right;"><span style="font-size: 6px; color: green;">5</span><span style="font-size: 11px; display: block;">This is the hint</span></div></div>';
 
     expect(resultItem.outerHTML).toBe(expectedHtml);
   });

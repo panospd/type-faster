@@ -15,9 +15,11 @@ export default function ResultsContainer({ results }) {
       <FlexSection
         direction="column"
         style={{
-          width: "100%",
+          width: "70%",
           borderSizing: "border-box",
           border: "2px solid black",
+          backgroundColor: "white",
+          padding: "20px 10px",
         }}
       >
         <FlexItem

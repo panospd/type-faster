@@ -10,10 +10,7 @@ export default function ResultItem({
   hint,
 }) {
   return (
-    <FlexSection
-      data-testid="resultItem"
-      style={{ padding: "10px", backgroundColor: "white" }}
-    >
+    <FlexSection data-testid="resultItem" style={{ padding: "8px" }}>
       {label && (
         <FlexItem grow={1} style={{ textAlign: "left" }}>
           <span style={{ fontSize: size?.label ?? "1.6em" }}>{label}:</span>:{" "}
