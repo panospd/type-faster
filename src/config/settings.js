@@ -2,12 +2,7 @@ const settings = {
   word: {
     delimiter: /\s+/,
   },
-  timer:
-    process.env.NODE_ENV === "production"
-      ? 60
-      : process.env.NODE_ENV === "development"
-      ? 10
-      : 2,
+  timer: process.env.TIMERVALUE ?? 10,
 };
 
 export default settings;
