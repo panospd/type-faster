@@ -57,6 +57,7 @@ export default function Timer({ start, onGameOver, reset }) {
     <div data-testid="timer" style={{ height: "100%", width: "100%" }}>
       <TextBox
         bgColor="#3c4d5c"
+        color="white"
         size={{ height: "100%", width: "100%" }}
         txtSize={25}
       >

@@ -14,8 +14,8 @@ export default function TextBox({
       data-testid="textBox"
       style={{
         ...style,
-        backgroundColor: bgColor ?? "#3c4d5c",
-        color: color ?? "white",
+        backgroundColor: bgColor,
+        color: color,
         height: size.height,
         width: size.width,
         textAlign: "center",

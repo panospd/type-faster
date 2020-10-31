@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Input from "../components/reusable/Input";
 import TextContainer from "../components/TextContainer";
@@ -6,11 +6,11 @@ import settings from "../config/settings";
 import textGenerator from "../services/textGenerator";
 import FlexItem from "./reusable/FlexItem";
 import FlexSection from "./reusable/FlexSection";
-import Reload from "./reusable/Reload";
+import Reload from "./Reload";
 import ResultsContainer from "./ResultsContainer";
 import Timer from "./reusable/Timer";
 
-export default function Typer() {
+export default function Typer({ mode }) {
   const [start, setStart] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [text, setText] = useState(textGenerator.generate(3));
@@ -96,12 +96,16 @@ export default function Typer() {
     setGameOver(false);
     setStart(false);
 
-    setText(textGenerator.generate(3));
+    setText(textGenerator.generate(3, mode));
     setOffset(0);
     setWordInputs([]);
     setCurrentInput("");
     setResetTimer(true);
   };
+
+  useEffect(() => {
+    handleNewRound();
+  }, [mode]);
 
   return (
     <FlexSection
@@ -154,7 +158,7 @@ export default function Typer() {
         </FlexSection>
       </FlexItem>
 
-      <FlexItem grow={1} style={{ width: "40%" }}>
+      <FlexItem grow={1} style={{ width: "40%", paddingTop: "30px" }}>
         {!results.empty && <ResultsContainer results={results} />}
       </FlexItem>
     </FlexSection>

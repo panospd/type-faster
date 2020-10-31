@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import FlexSection from "./components//reusable/FlexSection";
+import Navbar from "./components/Navbar";
+import FlexItem from "./components/reusable/FlexItem";
 
 import Typer from "./components/Typer";
 
 function App() {
+  const [mode, setMode] = useState("regular");
+
   return (
     <FlexSection
       style={{
@@ -16,7 +20,12 @@ function App() {
         backgroundColor: "#d88e8e",
       }}
     >
-      <Typer />
+      <FlexItem style={{ textAlign: "center" }}>
+        <Navbar mode={mode} setMode={setMode} />
+      </FlexItem>
+      <FlexItem>
+        <Typer mode={mode} />
+      </FlexItem>
     </FlexSection>
   );
 }

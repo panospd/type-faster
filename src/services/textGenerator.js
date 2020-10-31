@@ -1,13 +1,22 @@
-const txtgen = require("txtgen");
+import { sentence, setTemplates } from "txtgen";
 
-const generate = (numberOfSentences = 1) => {
-  let sentences = txtgen.sentence();
+let templates = [
+  "{{a_noun}} is {{a_noun}} from the right perspective",
+  "the {{noun}} of {{a_noun}} becomes {{an_adjective}} {{noun}}",
+];
+
+const generate = (numberOfSentences = 1, mode = "regular") => {
+  let sentences = sentence();
 
   for (let i = 2; i <= numberOfSentences; i++) {
-    sentences = sentences + " " + txtgen.sentence();
+    sentences = sentences + " " + sentence();
   }
 
-  return sentences;
+  return mode === "regular" ? transformToRegular(sentences) : sentences;
+};
+
+const transformToRegular = text => {
+  return text.toLowerCase().replace(/[^a-zA-Z' ]/g, "");
 };
 
 export default {

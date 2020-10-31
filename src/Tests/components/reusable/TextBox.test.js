@@ -14,7 +14,7 @@ describe("TextBox component", () => {
     const textBox = getByTestId("textBox");
 
     const expectedHtml =
-      '<div data-testid="textBox" style="background-color: rgb(60, 77, 92); color: white; height: 100px; width: 100px; text-align: center; align-items: center; display: table;"><span style="display: table-cell; vertical-align: middle; font-size: 1em;">Hello</span></div>';
+      '<div data-testid="textBox" style="height: 100px; width: 100px; text-align: center; align-items: center; display: table;"><span style="display: table-cell; vertical-align: middle; font-size: 1em;">Hello</span></div>';
 
     expect(textBox.outerHTML).toBe(expectedHtml);
   });
@@ -47,10 +47,8 @@ describe("TextBox component", () => {
     );
 
     const textBox = getByTestId("textBox");
+    const expected = "This will override whatever passed on text";
 
-    const expectedHtml =
-      '<div data-testid="textBox" style="background-color: rgb(60, 77, 92); color: white; height: 100px; width: 100px; text-align: center; align-items: center; display: table;"><span style="display: table-cell; vertical-align: middle; font-size: 1em;">This will override whatever passed on text</span></div>';
-
-    expect(textBox.outerHTML).toBe(expectedHtml);
+    expect(textBox.textContent).toBe(expected);
   });
 });
